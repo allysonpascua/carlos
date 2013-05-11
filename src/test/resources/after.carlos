@@ -1,0 +1,5 @@
+void sayHi (string name) {
+    print "Hi", ",", name;
+}
+
+after (20) sayHi("Carlos");

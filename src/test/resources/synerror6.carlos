@@ -1,0 +1,2 @@
+//print is not a procedure call
+after (3) print 5;

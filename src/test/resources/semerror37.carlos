@@ -1,0 +1,7 @@
+void sayHi (string name) {
+    print "Hi", ",", name;
+}
+
+// after only accepts arithmetic arguments
+
+after ("20") sayHi("Bob");
