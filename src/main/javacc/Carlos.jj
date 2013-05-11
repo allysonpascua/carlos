@@ -238,6 +238,7 @@ Statement parseStmt(): {
     Declarable d;
     Expression e = null, e1 = null, e2 = null;
     Statement s = null;
+    CallStatement cs = null;
     Block b = null;
     Block elseBlock = null;
     Token i = null;
@@ -267,13 +268,13 @@ Statement parseStmt(): {
     "print" (args = parseArgs()) ";"
     {return new PrintStatement(args);}
 |
-    "after" e = parseExp() s = parseCallStatement() ";"
-    {return new AfterStatement(e,s);}
+    "after" e = parseExp() cs = parseCallStatement() ";"
+    {return new AfterStatement(e,cs);}
 |
     "if" e = parseExp() b = parseBlock()
     {cases.add(new Case(e, b));}
     (
-        LOOKAHEAD(2) "else" "if" e = parseExp() b = parseB9lock()
+        LOOKAHEAD(2) "else" "if" e = parseExp() b = parseBlock()
         {cases.add(new Case(e, b));}
     )*
     (
@@ -318,7 +319,7 @@ Statement parseIncrementStatement(): {
     {return new IncrementStatement(v, op);}
 }
 
-Statement parseCallStatement(): {
+CallStatement parseCallStatement(): {
     Token i;
     List<Expression> args;
 }{

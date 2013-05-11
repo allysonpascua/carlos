@@ -241,6 +241,10 @@ public class CarlosToJavaScriptTranslator {
         emit("}");
     }
 
+    private void translateAfterStatement(AfterStatement s) {
+        // TODO
+    }
+
     private String translateExpression(Expression e) {
         if (e instanceof IntegerLiteral) {
             return IntegerLiteral.class.cast(e).getValue().toString();
