@@ -242,7 +242,7 @@ public class CarlosToJavaScriptTranslator {
     }
 
     private void translateAfterStatement(AfterStatement s) {
-        // TODO
+    	emit("setTimeout(function () {%s}, %s);", s.getCallAfter(), translateExpression(s.getDelayTime()));
     }
 
     private String translateExpression(Expression e) {
